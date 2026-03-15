@@ -1,9 +1,12 @@
 📊 Olayinka Azeez | Data Analyst & CS Graduate
+
+------------------------------
 🚀 Overview
 Professional portfolio showcasing data-driven solutions and business intelligence dashboards. This project serves as both a personal brand and a technical demonstration of full-stack development using Django, Django Rest Framework (DRF), and Bootstrap 5.
 
 Key Focus: Transforming complex datasets into actionable insights through interactive Power BI visualizations.
 
+--------------------
 🛠️ Tech Stack
 Backend: Python, Django, Django Rest Framework (DRF)
 
@@ -15,8 +18,7 @@ Data Tools: Power BI (DAX, Power Query), SQL
 
 Environment: uv (Dependency Management)
 
-
-
+------------------------------
 ⚙️ Installation & Setup
 This project uses uv for extremely fast and reliable dependency management.
 
@@ -39,6 +41,8 @@ Run Migrations & Start Server:
 Bash
 uv run python manage.py migrate
 uv run python manage.py runserver
+
+-----------------------
 📂 Project Structure
 Plaintext
 ├── core/               # Project configuration (settings, urls)
@@ -49,7 +53,7 @@ Plaintext
 ├── pyproject.toml      # uv dependency file
 └── manage.py
 
-
+---------------------------
 📬 Contact
 LinkedIn: [Link to Profile]
 
