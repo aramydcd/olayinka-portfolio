@@ -3,7 +3,7 @@ services:
     name: real-bro-portfolio
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "uv run gunicorn core.wsgi:application" # Replace 'core' with your project folder name
+    startCommand: "uv run gunicorn core.wsgi:application --bind 0.0.0.0:$PORT" # Replace 'core' with your project folder name
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.1
