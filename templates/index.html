@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Olayinka Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root { --primary-green: #1a5e3a; } /* Matching the screenshot's green */
@@ -45,6 +47,53 @@
         .bg-success {
             background-color: #1a5e3a !important;
         }
+
+        /* Ensure the hero takes up exactly 100% of the screen height */
+        .vh-100 {
+            height: 100vh;
+        }
+
+        /* For mobile: if the screen is small, we stack the text and put the image as a background */
+        @media (max-width: 991px) {
+            #about {
+                height: auto;
+                padding-top: 80px;
+                text-align: center;
+            }
+            .col-lg-6.text-start {
+                text-align: center !important;
+            }
+            .d-flex {
+                justify-content: center;
+            }
+        }
+
+        /* The "Pro" clip-path creates that sharp diagonal edge seen in premium templates */
+        .analyst-card {
+            z-index: 5;
+        }
+
+        .z-2 { z-index: 2; }
+
+        .data-bg-pattern {
+            z-index: 0; /* Keeps it in the back */
+        }
+        .z-2 {
+            z-index: 2;
+            position: relative;
+        }
+
+
+        /* Make the cards bounce slightly on hover */
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+        }
+
+
     </style>
 </head>
 <body>
@@ -65,70 +114,76 @@
             </div>
         </div>
     </nav>
-    
-    <section id="about" class="hero-section position-relative overflow-hidden bg-white py-5">
+
+    <section id="about" class="min-vh-100 d-flex align-items-center position-relative bg-white overflow-hidden" style="padding-top: 70px;">
         <div class="data-bg-pattern"></div>
         
-        <div class="container position-relative py-5">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6 text-start">
-                    <!---
-                    <div class="d-inline-flex align-items-center mb-3 py-2 px-3 bg-light rounded-pill border">
-                        <span class="badge bg-success rounded-circle p-1 me-2"> </span>
-                        <span class="small fw-bold text-secondary">Available for Data Roles</span>
-                    </div>
-                     -->
-                    <h1 class="display-3 fw-bold mb-3 text-dark">
-                        Turning Complex Data into <span class="text-success">Visual Impact</span>.
-                    </h1>
-                    <p class="lead text-muted mb-4 fs-4">
-                        Computer Science Graduate specializing in <b>Power BI</b> and <b>Business Intelligence</b> for Data Analysis. I build data-driven stories that help stakeholders make faster, smarter decisions.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="#media" class="btn btn-dark btn-lg px-4 rounded-3 shadow-sm">View Dashboards</a>
-                        <a href="#contact" class="btn btn-outline-dark btn-lg px-4 rounded-3">Get in Touch</a>
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-center">
+                
+                <div class="col-lg-6 p-5 px-md-5 z-2">
+                    <div class="ps-lg-5">
+                        <span class="badge bg-success-subtle text-success px-3 py-2 mb-3 rounded-pill fw-bold">
+                            <i class="fa-solid fa-star me-2"></i> 1 of 1 | The Real Bro
+                        </span>
+                        <h1 class="display-2 fw-bold text-dark mb-4">
+                            Living Life in <span class="text-success">High Definition</span>.
+                        </h1>
+                        <p class="lead text-muted mb-5 fs-4" style="max-width: 550px;">
+                            I’m <b>Olayinka Azeez</b>, but the streets call me <b>The Real Bro</b>. Just a vibe-chaser, goal-getter, and the life of the party. 
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#media" class="btn btn-dark btn-lg px-5 rounded-3 shadow">Catch the Vibe</a>
+                            <a href="#contact" class="btn btn-outline-dark btn-lg px-4 rounded-3">Let's Link</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden analyst-card">
-                        <div class="card-header bg-dark text-white py-3 border-0 d-flex justify-content-between">
-                            <span class="small fw-bold">Live Skills Analysis</span>
-                            <div class="d-flex gap-1">
-                                <div class="bg-danger rounded-circle" style="width:10px; height:10px;"></div>
-                                <div class="bg-warning rounded-circle" style="width:10px; height:10px;"></div>
-                                <div class="bg-success rounded-circle" style="width:10px; height:10px;"></div>
-                            </div>
-                        </div>
-                        <div class="card-body bg-light p-4">
-                            <div class="mb-4">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="fw-bold text-dark">Power BI & DAX</span>
-                                    <span class="text-success fw-bold">Advanced</span>
-                                </div>
-                                <div class="progress rounded-pill" style="height: 10px;">
-                                    <div class="progress-bar bg-success" style="width: 92%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="fw-bold text-dark">SQL & Data Modeling</span>
-                                    <span class="text-success fw-bold">Proficient</span>
-                                </div>
-                                <div class="progress rounded-pill" style="height: 10px;">
-                                    <div class="progress-bar bg-success" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-0">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="fw-bold text-dark">Python for Analysis</span>
-                                    <span class="text-success fw-bold">Intermediate</span>
-                                </div>
-                                <div class="progress rounded-pill" style="height: 10px;">
-                                    <div class="progress-bar bg-success" style="width: 70%"></div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Image Column -->
+                <div class="col-lg-6 position-relative d-none d-lg-block" style="height: calc(100vh - 70px);">
+                    <div class="h-100 w-100 shadow-lg" 
+                        style="background: url('olayinka_portfolio\static\images\client-photo.jpeg') center/cover no-repeat; 
+                                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);">
+
+                        <img src="{% static 'images/client-photo.jpeg' %}" alt="Olayinka Portfolio" class="h-100 w-100 object-cover shadow-lg" style="clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                        
+                        <div class="h-100 w-100" style="background: linear-gradient(45deg, rgba(26, 94, 58, 0.1), transparent);"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="lifestyle" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="fw-bold display-5">Beyond the <span class="text-success">Main Character</span> Energy</h2>
+                    <p class="text-muted">No gatekeeping here—this is what keeps me locked in.</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light p-4 h-100 rounded-4 shadow-sm text-center">
+                        <div class="fs-1 mb-3">⚽</div>
+                        <h4 class="fw-bold">Pitch King</h4>
+                        <p class="text-muted">Whether it's a real football match or a sweaty game of <b>DLS (Dream League Soccer)</b>, I'm playing to win. No cap.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 bg-dark text-white p-4 h-100 rounded-4 shadow text-center">
+                        <div class="fs-1 mb-3">🕺</div>
+                        <h4 class="fw-bold text-success">Night Life</h4>
+                        <p class="opacity-75">When the sun goes down, the lights come up. Catch me at the club turning up the energy. It's all about the memories and the music.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light p-4 h-100 rounded-4 shadow-sm text-center">
+                        <div class="fs-1 mb-3">✈️</div>
+                        <h4 class="fw-bold">Pure Vibes</h4>
+                        <p class="text-muted">Traveling, exploring new spots, and keeping the "Real Bro" energy 100% at all times. Just living my best life.</p>
                     </div>
                 </div>
             </div>
@@ -208,44 +263,53 @@
 
     <footer class="contact-section">
         <div class="container text-center">
-            <h2>Follow Me</h2>
-            <div class="d-flex justify-content-center gap-3 mt-4">
-                <a href="#" class="text-white opacity-75"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white opacity-75"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-white opacity-75"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:email@example.com" class="text-white opacity-75"><i class="fas fa-envelope"></i></a>
+            <h2 class="fw-bold">Follow Me</h2>        
+            <div class="d-flex justify-content-center gap-3 mt-4 mb-4">
+                <!-- Icons stay the same as your code, but ensured fa-brands is used -->
+                <a href="https://www.facebook.com/share/1H7VTEr7kF/?mibextid=wwXIfr" class="text-white fs-4" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://x.com/iam_yinka1?s=21" class="text-white fs-4" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/2347040267886" class="text-white fs-4" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.snapchat.com/add/the_realbro11" class="text-white fs-4" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="https://www.tiktok.com/@olayinka_leads" class="text-white fs-4" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.threads.net/@iam_yinka1" class="text-white fs-4" target="_blank"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://www.instagram.com/olayinka_leads" class="text-white fs-4" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <div>
-                <p class="small text-muted mb-0">© 2026 REAL-BRO. All Rights Reserved.</p>
+
+            <div class="pt-3 border-top border-white border-opacity-25">
+                <p class="small text-white-50 mb-0">© 2026 REAL-BRO. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         async function loadMedia(category, element) {
             // UI Toggle
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+            if(element) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                element.classList.add('active');
+            }
 
-            // API Fetch
-            const response = await fetch(`/api/media/?category=${category}`);
-            const data = await response.json();
-            
-            const grid = document.getElementById('media-grid');
-            grid.innerHTML = data.map(item => `
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="${item.image}" class="card-img-top" alt="${item.title}">
-                        <div class="card-body">
-                            <p class="fw-bold mb-1">${item.title}</p>
-                            <p class="small text-muted mb-2">${item.caption}</p>
-                            ${item.link ? `<a href="${item.link}" class="small">View more</a>` : ''}
+            try {
+                const response = await fetch(`/api/media/?category=${category}`);
+                const data = await response.json();
+                
+                const grid = document.getElementById('media-grid');
+                grid.innerHTML = data.map(item => `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm analyst-card">
+                            <img src="${item.image}" class="card-img-top" alt="${item.title}" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <p class="fw-bold mb-1 text-dark">${item.title}</p>
+                                <p class="small text-muted mb-2">${item.caption}</p>
+                                ${item.view_more_link ? `<a href="${item.view_more_link}" class="small text-success fw-bold" target="_blank">View Dashboard</a>` : ''}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
+            } catch (error) {
+                console.error("Error loading media:", error);
+            }
         }
-        // Load default
         window.onload = () => loadMedia('all', document.querySelector('.filter-btn'));
     </script>
 </body>
