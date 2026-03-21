@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: real-bro-portfolio
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "uv run gunicorn core.wsgi:application" # Replace 'core' with your project folder name
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.1
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings # Replace 'core' with your project folder name
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
