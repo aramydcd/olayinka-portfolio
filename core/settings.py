@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-_wqy1fjhqt26qw!b59dj)p%s$)b-zt!kei%nsj(r(sra=x#j0a
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*'] # Or your-app-name.onrender.com
+# This allows your specific Render URL and any local testing
+ALLOWED_HOSTS = ['olayinka-portfolio-7kam.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
