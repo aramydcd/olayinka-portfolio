@@ -86,16 +86,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 if DATABASE_URL:
+    # --- PRODUCTION (Render) ---
     DATABASES = {
         'default': dj_database_url.config(
             default=DATABASE_URL,
-            conn_max_age=600, # Keeps connections alive for better performance
+            conn_max_age=600,
             conn_health_checks=True,
         )
     }
     print("✅ Django is using the Remote PostgreSQL Database")
 else:
-    # 3. Fallback to local SQLite for your local development
+    # --- LOCAL (SQLite) ---
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -103,14 +104,6 @@ else:
         }
     }
     print("⚠️ DATABASE_URL not found, Django is using local SQLite")
-
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
-    )
-}
 
 
 # Password validation
