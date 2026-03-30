@@ -83,9 +83,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASE_URL = 'postgresql://portfolio_db_fiha_user:cyEjsaHNsH8gwDWvBq6iv8JNWgbY2s86@dpg-d5d90pur433s73acaca0-aoregon-postgres.render.com/'
+DATABASE_URL = os.getenv('DATABASE_URL')
 
-if DATABASE_URL:
+if DATABASE_URL.startswith("postgres://":
+      # --- LOCAL (SQLite) ---
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    print("⚠️ DATABASE_URL not found, Django is using local SQLite")
+
+else:
     # --- PRODUCTION (Render) ---
     DATABASES = {
         'default': dj_database_url.config(
@@ -94,16 +104,7 @@ if DATABASE_URL:
             conn_health_checks=True,
         )
     }
-    print("✅ Django is using the Remote PostgreSQL Database")
-else:
-    # --- LOCAL (SQLite) ---
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-    print("⚠️ DATABASE_URL not found, Django is using local SQLite")
+    print("✅ Django is using the Remote PostgreSQL Database")  
 
 
 # Password validation
