@@ -188,6 +188,58 @@
         .modal.show .modal-dialog {
             transform: translateY(0);
         }
+
+
+
+        /* Base style for the image container */
+        .hero-img-col {
+            height: 50vh; /* Image takes up half the screen on mobile */
+        }
+
+        .hero-image-wrapper {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 94, 58, 0.1), transparent);
+        }
+
+        /* Desktop Styles (Large screens) */
+        @media (min-width: 992px) {
+            .hero-img-col {
+                height: calc(100vh - 70px); /* Full height on desktop */
+            }
+            
+            .hero-image-wrapper {
+                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+            }
+        }
+
+        /* Mobile Styles (Small screens) */
+        @media (max-width: 991px) {
+            #about {
+                padding-top: 100px;
+                min-height: auto !important;
+            }
+            
+            .hero-img-col {
+                order: -1; /* Puts the image ABOVE the text on mobile */
+                height: 400px;
+                margin-bottom: 2rem;
+            }
+
+            .display-2 {
+                font-size: 2.5rem; /* Shrink the big text so it fits mobile screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -234,7 +286,7 @@
                 </div>
 
                 <!-- Image Column -->
-                <div class="col-lg-6 position-relative d-none d-lg-block" style="height: calc(100vh - 70px);">
+                <!-- <div class="col-lg-6 position-relative d-none d-lg-block" style="height: calc(100vh - 70px);">
                     <div class="h-100 w-100 shadow-lg" 
                         style="background: url('olayinka_portfolio\static\images\client-photo.jpeg') center/cover no-repeat; 
                                 clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);">
@@ -242,6 +294,13 @@
                         <img src="{% static 'images/client-photo.jpeg' %}" alt="Olayinka Portfolio" class="h-100 w-100 object-cover shadow-lg" style="clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);">
                         
                         <div class="h-100 w-100" style="background: linear-gradient(45deg, rgba(26, 94, 58, 0.1), transparent);"></div>
+                    </div>
+                </div> -->
+
+                <div class="col-lg-6 position-relative hero-img-col">
+                    <div class="hero-image-wrapper shadow-lg">
+                        <img src="{% static 'images/client-photo.jpeg' %}" alt="Olayinka Portfolio" class="h-100 w-100 object-fit-cover">
+                        <div class="hero-overlay"></div>
                     </div>
                 </div>
 
