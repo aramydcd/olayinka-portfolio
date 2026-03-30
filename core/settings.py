@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = 'postgresql://portfolio_db_fiha_user:cyEjsaHNsH8gwDWvBq6iv8JNWgbY2s86@dpg-d5d90pur433s73acaca0-aoregon-postgres.render.com/'
 
 if DATABASE_URL:
     # --- PRODUCTION (Render) ---
