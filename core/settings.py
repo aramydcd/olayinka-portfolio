@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 
-if DATABASE_URL.startswith("postgres://":
+if DATABASE_URL:
       # --- LOCAL (SQLite) ---
     DATABASES = {
         'default': {
